@@ -32,8 +32,7 @@ RUN cd /root/ && \
 	tar xf libjpeg-turbo.tar.gz && \
 	cd libjpeg-turbo-1.4.2 && \
 	./configure --with-pic && \
-	make install && \
-	cd -
+	make install
 
 # Install libuvc from git.
 RUN cd /root/ && \
@@ -43,8 +42,7 @@ RUN cd /root/ && \
 	cd build && \
 	cmake .. && \
 	make && \
-	make install && \
-	cd -
+	make install
 
 # Install some Python packages.
 RUN pip install --upgrade pip
@@ -60,8 +58,7 @@ RUN pip install \
 RUN cd /root/ && \
 	git clone https://github.com/pupil-labs/PyAV && \
 	cd PyAV && \
-	python setup.py install && \
-	cd -
+	python setup.py install
 
 # Install GLFW.
 RUN dnf -y install glfw-devel
