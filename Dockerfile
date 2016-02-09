@@ -63,5 +63,8 @@ RUN cd /root/ && \
 	python setup.py install && \
 	cd -
 
+# Install GLFW.
+RUN dnf -y install glfw-devel
+
 # Set default command
 CMD ["/usr/bin/bash"]
