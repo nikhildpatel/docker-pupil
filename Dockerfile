@@ -56,5 +56,12 @@ RUN pip install \
 	pyzmq \
 	https://github.com/zeromq/pyre/archive/master.zip
 
+# Install PyAV.
+RUN cd /root/ && \
+	git clone https://github.com/pupil-labs/PyAV && \
+	cd PyAV && \
+	python setup.py install && \
+	cd -
+
 # Set default command
 CMD ["/usr/bin/bash"]
