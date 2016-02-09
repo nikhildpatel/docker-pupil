@@ -22,7 +22,8 @@ RUN dnf -y install \
 	opencv-python \
 	scipy \
 	glew-devel \
-	nasm && \
+	nasm \
+	redhat-rpm-config && \
 	dnf clean all
 
 # Install libjpeg-turbo from sources to use the --with-pic flag.
@@ -34,6 +35,7 @@ RUN cd /root/ && \
 	make install && \
 	cd -
 
+# Install libuvc from git.
 RUN cd /root/ && \
 	git clone https://github.com/pupil-labs/libuvc && \
 	cd libuvc && \
@@ -43,6 +45,16 @@ RUN cd /root/ && \
 	make && \
 	make install && \
 	cd -
+
+# Install some Python packages.
+RUN pip install --upgrade pip
+
+RUN pip install \
+	numexpr \
+	cython \
+	psutil \
+	pyzmq \
+	https://github.com/zeromq/pyre/archive/master.zip
 
 # Set default command
 CMD ["/usr/bin/bash"]
