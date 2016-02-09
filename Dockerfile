@@ -63,5 +63,11 @@ RUN cd /root/ && \
 # Install GLFW.
 RUN dnf -y install glfw-devel
 
+# Install pyuvc.
+RUN cd /root/ && \
+	git clone http://github.com/pupil-labs/pyuvc && \
+	cd pyuvc && \
+	python setup.py install
+
 # Set default command
 CMD ["/usr/bin/bash"]
