@@ -3,6 +3,7 @@ FROM fedora:latest
 RUN dnf -y update && \
 	dnf -y group install "Development Tools" "C Development Tools and Libraries" && \
 	dnf -y install --nogpgcheck http://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-stable.noarch.rpm && \
+	dnf -y update && \
 	dnf -y install \
 		PyOpenGL \
 		mesa-libGLU-devel \
