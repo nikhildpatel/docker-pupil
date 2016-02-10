@@ -61,7 +61,8 @@ RUN cd /root/ && \
 	python setup.py install
 
 # Install GLFW.
-RUN dnf -y install glfw-devel
+RUN dnf -y install glfw-devel && \
+	dnf clean all
 
 # Install pyuvc.
 RUN cd /root/ && \
