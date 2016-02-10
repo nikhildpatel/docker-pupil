@@ -69,5 +69,11 @@ RUN cd /root/ && \
 	cd pyuvc && \
 	python setup.py install
 
+# Install pyglui.
+RUN cd /root/ && \
+	git clone http://github.com/pupil-labs/pyglui --recursive && \
+	cd pyglui && \
+	python setup.py install
+
 # Set default command
 CMD ["/usr/bin/bash"]
