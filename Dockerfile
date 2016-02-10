@@ -1,29 +1,24 @@
 FROM fedora:latest
 
 RUN dnf -y update && \
-	dnf clean all
-
-RUN dnf -y group install "Development Tools" "C Development Tools and Libraries" && \
-	dnf clean all
-
-RUN dnf -y install --nogpgcheck http://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-stable.noarch.rpm && \
-	dnf clean all
-
-# Install the Pupil dependencies available in the distro.
-RUN dnf -y install \
-	PyOpenGL \
-	mesa-libGLU-devel \
-	libusb-devel \
-	cmake \
-	python-zmq \
-	python-devel \
-	ffmpeg \
-	ffmpeg-devel \
-	opencv-python \
-	scipy \
-	glew-devel \
-	nasm \
-	redhat-rpm-config && \
+	dnf -y group install "Development Tools" "C Development Tools and Libraries" && \
+	dnf -y install --nogpgcheck http://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-stable.noarch.rpm && \
+	dnf -y install \
+		PyOpenGL \
+		mesa-libGLU-devel \
+		libusb-devel \
+		cmake \
+		python-zmq \
+		python-devel \
+		ffmpeg \
+		ffmpeg-devel \
+		opencv-python \
+		scipy \
+		glew-devel \
+		nasm \
+		redhat-rpm-config \
+		glfw-devel \
+		ceres-solver && \
 	dnf clean all
 
 # Install libjpeg-turbo from sources to use the --with-pic flag.
@@ -60,10 +55,6 @@ RUN cd /root/ && \
 	cd PyAV && \
 	python setup.py install
 
-# Install GLFW.
-RUN dnf -y install glfw-devel && \
-	dnf clean all
-
 # Install pyuvc.
 RUN cd /root/ && \
 	git clone http://github.com/pupil-labs/pyuvc && \
@@ -75,10 +66,6 @@ RUN cd /root/ && \
 	git clone http://github.com/pupil-labs/pyglui --recursive && \
 	cd pyglui && \
 	python setup.py install
-
-# Install ceres-solver.
-RUN dnf -y install ceres-solver && \
-	dnf clean all
 
 # Set default command
 CMD ["/usr/bin/bash"]
