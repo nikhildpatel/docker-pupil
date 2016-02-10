@@ -31,8 +31,10 @@ RUN cd /root/ && \
 
 # Install libuvc from git.
 RUN cd /root/ && \
-	git clone https://github.com/pupil-labs/libuvc && \
-	cd libuvc && \
+	commit="f17ba66296aa7fc7e1ccb91be239a7fcc8d238ea" && \
+	curl -o libuvc.tar.gz -L "https://github.com/pupil-labs/libuvc/archive/${commit}.tar.gz" && \
+	tar xf libuvc.tar.gz && \
+	cd libuvc-${commit} && \
 	mkdir build && \
 	cd build && \
 	cmake .. && \
