@@ -39,6 +39,10 @@ RUN cd /root/ && \
 	make && \
 	make install
 
+# Workaround for libuvc cmake shenanigan.
+RUN echo "/usr/local/lib" >> /etc/ld.so.conf && \
+	ldconfig
+
 # Install some Python packages.
 RUN pip install --upgrade pip
 
