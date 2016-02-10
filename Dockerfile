@@ -76,5 +76,9 @@ RUN cd /root/ && \
 	cd pyglui && \
 	python setup.py install
 
+# Install ceres-solver.
+RUN dnf -y install ceres-solver && \
+	dnf clean all
+
 # Set default command
 CMD ["/usr/bin/bash"]
