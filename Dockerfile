@@ -67,5 +67,9 @@ RUN cd /root/ && \
 	cd pyglui && \
 	python setup.py install
 
+# Download pupil source code.
+RUN cd /root/ && \
+	git clone https://github.com/pupil-labs/pupil
+
 # Set default command
 CMD ["/usr/bin/bash"]
