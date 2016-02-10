@@ -11,4 +11,4 @@ Copy the sources down and do the build:
 
 To run:
 
-    # docker run <username>/pupil-fedora
+    # docker run -it --env DISPLAY=$DISPLAY --volume /tmp/.X11-unix:/tmp/.X11-unix <username>/pupil-fedora
