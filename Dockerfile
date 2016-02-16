@@ -84,9 +84,13 @@ RUN cd /root/ && \
 	python setup.py install
 
 # Install pyglui.
+# It doesn't work from the tarball because there are some git submodules. So do a git clone instead.
 RUN cd /root/ && \
-	git clone http://github.com/pupil-labs/pyglui --recursive && \
+	commit="cff6abb13d3ed74ca263fd8798b6f8854402440e" && \
+	git clone http://github.com/pupil-labs/pyglui && \
 	cd pyglui && \
+	git checkout -b docker ${commit} && \
+	git submodule update --init --recursive && \
 	python setup.py install
 
 # Download pupil source code.
