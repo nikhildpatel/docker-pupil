@@ -81,5 +81,12 @@ RUN cd /root/ && \
 RUN cd /root/ && \
 	git clone https://github.com/pupil-labs/pupil
 
+RUN dnf -y install \
+	opencv-devel \
+	eigen3-devel \
+	ceres-solver-devel \
+	boost-devel && \
+	dnf clean all
+
 # Set default command
 CMD ["/usr/bin/bash"]
