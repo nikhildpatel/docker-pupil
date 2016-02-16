@@ -61,8 +61,10 @@ RUN pip install \
 
 # Install PyAV.
 RUN cd /root/ && \
-	git clone https://github.com/pupil-labs/PyAV && \
-	cd PyAV && \
+	commit="731082a861a7688ce182c37917541cf3e320e1b9" && \
+	curl -o PyAV.tar.gz -L "https://github.com/pupil-labs/PyAV/archive/${commit}.tar.gz" && \
+	tar xf PyAV.tar.gz && \
+	cd PyAV-${commit} && \
 	python setup.py install
 
 # Install pyuvc.
