@@ -17,20 +17,15 @@ RUN dnf -y update && \
 		ffmpeg \
 		ffmpeg-devel \
 		opencv-python \
+		opencv-devel \
 		scipy \
 		glew-devel \
 		nasm \
 		redhat-rpm-config \
 		glfw-devel \
-		ceres-solver && \
-	dnf clean all
-
-# Some more dependencies.
-RUN dnf -y install \
-	opencv-devel \
-	eigen3-devel \
-	ceres-solver-devel \
-	boost-devel && \
+		eigen3-devel \
+		ceres-solver-devel \
+		boost-devel && \
 	dnf clean all
 
 # Install libjpeg-turbo from sources to use the --with-pic flag.
