@@ -77,8 +77,10 @@ RUN cd /root/ && \
 
 # Install pyuvc.
 RUN cd /root/ && \
-	git clone http://github.com/pupil-labs/pyuvc && \
-	cd pyuvc && \
+	version="0.5" && \
+	curl -o pyuvc.tar.gz -L "https://github.com/pupil-labs/pyuvc/archive/v${version}.tar.gz" && \
+	tar xf pyuvc.tar.gz && \
+	cd pyuvc-${version} && \
 	python setup.py install
 
 # Install pyglui.
