@@ -25,6 +25,10 @@ A container provides several benefits:
 - What is installed in production will be as similar as possible to what the
   developers have tested.
 
+Be warned that this Dockerfile is still under development. It doesn't try to
+install the bare minimum dependencies. But it's already a good basis to work
+with the Pupil platform with a container. Any help is welcome!
+
 More information:
 - [Pupil](https://pupil-labs.com/)
 - [Docker](https://www.docker.com/)
