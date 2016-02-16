@@ -25,6 +25,14 @@ RUN dnf -y update && \
 		ceres-solver && \
 	dnf clean all
 
+# Some more dependencies.
+RUN dnf -y install \
+	opencv-devel \
+	eigen3-devel \
+	ceres-solver-devel \
+	boost-devel && \
+	dnf clean all
+
 # Install libjpeg-turbo from sources to use the --with-pic flag.
 RUN cd /root/ && \
 	curl -o libjpeg-turbo.tar.gz -L "http://sourceforge.net/projects/libjpeg-turbo/files/1.4.2/libjpeg-turbo-1.4.2.tar.gz/download" && \
@@ -82,13 +90,6 @@ RUN cd /root/ && \
 # Download pupil source code.
 RUN cd /root/ && \
 	git clone https://github.com/pupil-labs/pupil
-
-RUN dnf -y install \
-	opencv-devel \
-	eigen3-devel \
-	ceres-solver-devel \
-	boost-devel && \
-	dnf clean all
 
 # Set default command
 CMD ["/usr/bin/bash"]
