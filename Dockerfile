@@ -95,7 +95,10 @@ RUN cd /root/ && \
 
 # Download pupil source code.
 RUN cd /root/ && \
-	git clone https://github.com/pupil-labs/pupil
+	commit="267c1de6f5f5bb07d8cc0244498de83f09d9c7da" && \
+	git clone https://github.com/pupil-labs/pupil && \
+	cd pupil && \
+	git checkout -b docker ${commit}
 
 # Set default command
 CMD ["/usr/bin/bash"]
