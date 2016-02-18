@@ -81,10 +81,10 @@ RUN cd /root/ && \
 # Install pyglui.
 # It doesn't work from the tarball because there are some git submodules. So do a git clone instead.
 RUN cd /root/ && \
-	commit="cff6abb13d3ed74ca263fd8798b6f8854402440e" && \
+	version="0.8" && \
 	git clone http://github.com/pupil-labs/pyglui && \
 	cd pyglui && \
-	git checkout -b docker ${commit} && \
+	git checkout -b docker v${version} && \
 	git submodule update --init --recursive && \
 	python setup.py install
 
