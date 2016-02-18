@@ -95,5 +95,10 @@ RUN cd /root/ && \
 	cd pupil && \
 	git checkout -b docker ${commit}
 
+RUN dnf -y install \
+	glog-devel \
+	gflags-devel && \
+	dnf clean all
+
 # Set default command
 CMD ["/usr/bin/bash"]
