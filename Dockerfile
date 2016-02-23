@@ -26,7 +26,9 @@ RUN dnf -y update && \
 		glfw-devel \
 		eigen3-devel \
 		ceres-solver-devel \
-		boost-devel && \
+		boost-devel \
+		glog-devel \
+		gflags-devel && \
 	dnf clean all
 
 # Install libjpeg-turbo from sources to use the --with-pic flag.
@@ -95,11 +97,6 @@ RUN cd /root/ && \
 	git clone https://github.com/pupil-labs/pupil && \
 	cd pupil && \
 	git checkout -b docker ${commit}
-
-RUN dnf -y install \
-	glog-devel \
-	gflags-devel && \
-	dnf clean all
 
 # Set default command
 CMD ["/usr/bin/bash"]
