@@ -98,5 +98,7 @@ RUN cd /root/ && \
 	cd pupil && \
 	git checkout -b docker ${commit}
 
+WORKDIR /root/pupil/
+
 # Set default command
 CMD ["/usr/bin/bash"]
