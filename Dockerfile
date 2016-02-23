@@ -1,4 +1,5 @@
 FROM fedora:latest
+MAINTAINER Sébastien Wilmet
 
 RUN dnf -y update && \
 	dnf -y group install \
