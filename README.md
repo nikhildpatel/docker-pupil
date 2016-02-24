@@ -35,6 +35,11 @@ More information:
 - [Fedora](https://getfedora.org/)
 - [Docker in Fedora](https://developer.fedoraproject.org/tools/docker/about.html)
 
+Host configuration
+------------------
+
+See the `host-config` file.
+
 Build the container image
 -------------------------
 
