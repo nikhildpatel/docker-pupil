@@ -41,7 +41,7 @@ RUN cd /root/ && \
 
 # Install libuvc from git.
 RUN cd /root/ && \
-	commit="900435183778f4a94a4197214166392e74e7edad" && \
+	commit="59b7e2ef516f3c22864cc7e80a44ffc9e5fe0194" && \
 	curl -o libuvc.tar.gz -L "https://github.com/pupil-labs/libuvc/archive/${commit}.tar.gz" && \
 	tar xf libuvc.tar.gz && \
 	cd libuvc-${commit} && \
