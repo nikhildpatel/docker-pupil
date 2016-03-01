@@ -93,7 +93,7 @@ RUN cd /root/ && \
 
 # Download pupil source code.
 RUN cd /root/ && \
-	commit="9c1386a571f853bc6774c7e17e17b7c0c26ca826" && \
+	commit="fa1ea6c38cb341fd1bda7a480cbacef8a92a05aa" && \
 	git clone https://github.com/pupil-labs/pupil && \
 	cd pupil && \
 	git checkout -b docker ${commit}
