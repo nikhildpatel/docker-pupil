@@ -26,10 +26,11 @@ RUN dnf -y install --nogpgcheck http://download1.rpmfusion.org/free/fedora/rpmfu
 		scipy && \
 	dnf clean all
 
-RUN dnf -y group install \
-	"Development Tools" \
-	"C Development Tools and Libraries" \
-	"Basic Desktop" && \
+RUN dnf -y group install "Basic Desktop" && \
+	dnf clean all
+
+RUN dnf -y builddep libjpeg-turbo && \
+	dnf -y install gcc-c++ git && \
 	dnf clean all
 
 WORKDIR /root/
