@@ -1,34 +1,35 @@
 FROM fedora:latest
 MAINTAINER Sébastien Wilmet
 
-RUN dnf -y update && \
-	dnf -y group install \
-		"Development Tools" \
-		"C Development Tools and Libraries" \
-		"Basic Desktop" && \
-	dnf -y install --nogpgcheck http://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-stable.noarch.rpm && \
+RUN dnf -y install --nogpgcheck http://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-stable.noarch.rpm && \
 	dnf -y update && \
 	dnf -y install \
-		PyOpenGL \
-		mesa-libGLU-devel \
-		libusb-devel \
+		boost-devel \
+		ceres-solver-devel \
 		cmake \
-		python-zmq \
-		python-devel \
+		eigen3-devel \
 		ffmpeg \
 		ffmpeg-devel \
-		opencv-python \
-		opencv-devel \
-		scipy \
+		gflags-devel \
 		glew-devel \
-		nasm \
-		redhat-rpm-config \
 		glfw-devel \
-		eigen3-devel \
-		ceres-solver-devel \
-		boost-devel \
 		glog-devel \
-		gflags-devel && \
+		libusb-devel \
+		mesa-libGLU-devel \
+		nasm \
+		opencv-devel \
+		opencv-python \
+		PyOpenGL \
+		python-devel \
+		python-zmq \
+		redhat-rpm-config \
+		scipy && \
+	dnf clean all
+
+RUN dnf -y group install \
+	"Development Tools" \
+	"C Development Tools and Libraries" \
+	"Basic Desktop" && \
 	dnf clean all
 
 WORKDIR /root/
