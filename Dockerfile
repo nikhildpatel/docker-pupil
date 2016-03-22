@@ -91,7 +91,7 @@ RUN version="0.8" && \
 	python setup.py install
 
 # Download pupil source code.
-RUN commit="ce91c77e7e97b68ead6980d2196a2961f5910288" && \
+RUN commit="2f6724d299e4922f8e1d794c152ba44983d5eda8" && \
 	git clone https://github.com/pupil-labs/pupil && \
 	cd pupil && \
 	git checkout -b docker ${commit} && \
