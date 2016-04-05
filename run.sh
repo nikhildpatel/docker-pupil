@@ -22,4 +22,5 @@ docker run -it \
 	--net=host \
 	--env DISPLAY=$DISPLAY \
 	--volume /tmp/.X11-unix:/tmp/.X11-unix \
+	--volume ~/pupil-recordings:/root/pupil/recordings \
 	swilmet/pupil-fedora
