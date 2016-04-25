@@ -68,7 +68,7 @@ RUN pip install \
 	https://github.com/zeromq/pyre/archive/master.zip
 
 # Install PyAV.
-RUN commit="731082a861a7688ce182c37917541cf3e320e1b9" && \
+RUN commit="498516d0df6080018dcfe2f234557ccfcea74435" && \
 	curl -o PyAV.tar.gz -L "https://github.com/pupil-labs/PyAV/archive/${commit}.tar.gz" && \
 	tar xf PyAV.tar.gz && \
 	cd PyAV-${commit} && \
@@ -91,7 +91,7 @@ RUN version="0.8" && \
 	python setup.py install
 
 # Download pupil source code.
-RUN commit="5fe690ed01f969c47d76d3ebb8274170daa3f380" && \
+RUN commit="225ff161de22afc3f299bbada2d06f4c4e704ae4" && \
 	git clone https://github.com/pupil-labs/pupil && \
 	cd pupil && \
 	git checkout -b docker ${commit} && \
