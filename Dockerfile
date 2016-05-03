@@ -1,4 +1,4 @@
-FROM fedora:latest
+FROM fedora:23
 MAINTAINER Sébastien Wilmet
 
 RUN dnf -y install --nogpgcheck http://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-stable.noarch.rpm && \
