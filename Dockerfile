@@ -75,7 +75,7 @@ RUN commit="498516d0df6080018dcfe2f234557ccfcea74435" && \
 	python setup.py install
 
 # Install pyuvc.
-RUN version="0.5" && \
+RUN version="0.6" && \
 	curl -o pyuvc.tar.gz -L "https://github.com/pupil-labs/pyuvc/archive/v${version}.tar.gz" && \
 	tar xf pyuvc.tar.gz && \
 	cd pyuvc-${version} && \
@@ -91,7 +91,7 @@ RUN version="0.8" && \
 	python setup.py install
 
 # Download pupil source code.
-RUN commit="225ff161de22afc3f299bbada2d06f4c4e704ae4" && \
+RUN commit="7e79d2a56ceb9bcacebe76e0df87f6e55b13c8d8" && \
 	git clone https://github.com/pupil-labs/pupil && \
 	cd pupil && \
 	git checkout -b docker ${commit} && \
