@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 
+# Usages:
+# ./run.sh
+# ./run.sh /path/where/recordings/should/be/saved
+
 # Normally a container offers greater security, but it is not the case if you
 # run the container with this script, since the privileged mode and net=host
 # are used. So you need to trust the software installed inside the container.
@@ -17,10 +21,16 @@
 #   Broadcast Server.
 # - DISPLAY and X11 socket volume: needed for a GUI application.
 
+if [ "$#" -lt "1" ]; then
+	recordings_dir=~/pupil/recordings
+else
+	recordings_dir=$1
+fi
+
 docker run -it \
 	--privileged \
 	--net=host \
 	--env DISPLAY=$DISPLAY \
 	--volume /tmp/.X11-unix:/tmp/.X11-unix \
-	--volume ~/pupil/recordings:/root/pupil/recordings \
+	--volume $recordings_dir:/root/pupil/recordings \
 	ucl-cosy/pupil-fedora
