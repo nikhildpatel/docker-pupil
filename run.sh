@@ -27,7 +27,7 @@ else
 	recordings_dir=$1
 fi
 
-docker run -it \
+docker run -it --rm \
 	--privileged \
 	--net=host \
 	--env DISPLAY=$DISPLAY \
