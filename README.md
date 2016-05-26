@@ -5,7 +5,7 @@ Fedora Dockerfile for the [Pupil](https://pupil-labs.com/) eye tracking
 software.
 
 Installing the Pupil software from the sources involves quite [a lot of
-steps](https://github.com/pupil-labs/pupil/wiki/Dependencies-Installation-Linux-14.xx).
+steps](https://github.com/pupil-labs/pupil/wiki/Dependencies-Installation-Linux).
 Instead of needing to re-do these steps on a new system, the Dockerfile
 provided here is a Docker container definition file.
 
@@ -33,7 +33,7 @@ More information:
 - [Pupil](https://pupil-labs.com/)
 - [Docker](https://www.docker.com/)
 - [Fedora](https://getfedora.org/)
-- [Docker in Fedora](https://developer.fedoraproject.org/tools/docker/about.html)
+- [Docker in Fedora](https://developer.fedoraproject.org/)
 
 Host configuration
 ------------------
@@ -43,9 +43,13 @@ See the `host-config` file.
 Build the container image
 -------------------------
 
-    $ ./build.sh
+    # ./build.sh
 
 Run the container
 -----------------
 
-    $ ./run.sh
+    # ./run.sh
+
+or
+
+    # ./run.sh /path/where/recordings/should/be/saved
