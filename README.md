@@ -4,6 +4,8 @@ docker-pupil
 Fedora Dockerfile for the [Pupil](https://pupil-labs.com/) eye tracking
 software.
 
+Version: 2.0-beta
+
 Installing the Pupil software from the sources involves quite [a lot of
 steps](https://github.com/pupil-labs/pupil/wiki/Dependencies-Installation-Linux).
 Instead of needing to re-do these steps on a new system, the Dockerfile
