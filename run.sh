@@ -29,6 +29,7 @@ fi
 
 XSOCK=/tmp/.X11-unix
 XAUTH=/tmp/.docker.xauth
+> $XAUTH
 xauth nlist :0 | sed -e 's/^..../ffff/' | xauth -f $XAUTH nmerge -
 
 docker run -it --rm \
