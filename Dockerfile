@@ -28,6 +28,7 @@ RUN dnf -y install https://raw.githubusercontent.com/UnitedRPMs/unitedrpms/maste
 	dnf clean all
 
 RUN dnf -y group install "Basic Desktop" && \
+	dnf -y install mesa-libEGL && \
 	dnf clean all
 
 RUN dnf -y builddep libjpeg-turbo && \
