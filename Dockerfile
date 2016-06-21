@@ -1,7 +1,8 @@
-FROM fedora:23
+FROM fedora:24
 MAINTAINER Sébastien Wilmet
 
-RUN dnf -y install --nogpgcheck http://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-stable.noarch.rpm && \
+RUN dnf -y install https://raw.githubusercontent.com/UnitedRPMs/unitedrpms/master/RPM/unitedrpms-24-1.noarch.rpm && \
+	rpm --import https://raw.githubusercontent.com/UnitedRPMs/unitedrpms.github.io/master/URPMS-GPG-PUBLICKEY-Fedora-24 && \
 	dnf -y update && \
 	dnf -y install \
 		boost-devel \
