@@ -19,7 +19,7 @@
 #   device, etc.
 # - net=host: to configure more easily the IP address and port of the Pupil
 #   Broadcast Server.
-# - DISPLAY and X11 socket volume: needed for a GUI application.
+# - DISPLAY, XSOCK and XAUTH: needed for a GUI application.
 
 if [ "$#" -lt "1" ]; then
 	recordings_dir=~/pupil/recordings
@@ -27,10 +27,15 @@ else
 	recordings_dir=$1
 fi
 
+XSOCK=/tmp/.X11-unix
+XAUTH=/tmp/.docker.xauth
+xauth nlist :0 | sed -e 's/^..../ffff/' | xauth -f $XAUTH nmerge -
+
 docker run -it --rm \
 	--privileged \
 	--net=host \
 	--env DISPLAY=$DISPLAY \
-	--volume /tmp/.X11-unix:/tmp/.X11-unix \
+	--volume $XSOCK:$XSOCK \
+	--volume $XAUTH:$XAUTH --env XAUTHORITY=$XAUTH \
 	--volume $recordings_dir:/root/pupil/recordings \
 	ucl-cosy/pupil-fedora
