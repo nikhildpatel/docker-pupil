@@ -23,6 +23,7 @@ RUN dnf -y install https://raw.githubusercontent.com/UnitedRPMs/unitedrpms/maste
 		PyOpenGL \
 		python-devel \
 		python-zmq \
+		python2-msgpack \
 		redhat-rpm-config \
 		scipy && \
 	dnf clean all
@@ -93,10 +94,10 @@ RUN version="0.8" && \
 	python setup.py install
 
 # Download pupil source code.
-RUN commit="8cec640f106ff6fb6b5b542d63627e218b24708d" && \
+RUN version="0.8" && \
 	git clone https://github.com/pupil-labs/pupil && \
 	cd pupil && \
-	git checkout -b docker ${commit} && \
+	git checkout -b docker v${version} && \
 	python pupil_src/capture/pupil_detectors/build.py && \
 	python pupil_src/shared_modules/calibration_routines/optimization_calibration/build.py
 
