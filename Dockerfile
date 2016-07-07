@@ -94,10 +94,10 @@ RUN version="0.8" && \
 	python setup.py install
 
 # Download pupil source code.
-RUN version="0.8" && \
+RUN commit="16d490835bb685c4443f55f6247859c080bab359" && \
 	git clone https://github.com/pupil-labs/pupil && \
 	cd pupil && \
-	git checkout -b docker v${version} && \
+	git checkout -b docker ${commit} && \
 	python pupil_src/capture/pupil_detectors/build.py && \
 	python pupil_src/shared_modules/calibration_routines/optimization_calibration/build.py
 
