@@ -78,7 +78,7 @@ RUN commit="498516d0df6080018dcfe2f234557ccfcea74435" && \
 	python setup.py install
 
 # Install pyuvc.
-RUN version="0.6" && \
+RUN version="0.7" && \
 	curl -o pyuvc.tar.gz -L "https://github.com/pupil-labs/pyuvc/archive/v${version}.tar.gz" && \
 	tar xf pyuvc.tar.gz && \
 	cd pyuvc-${version} && \
