@@ -22,7 +22,6 @@ RUN dnf -y install https://raw.githubusercontent.com/UnitedRPMs/unitedrpms/maste
 		opencv-python \
 		PyOpenGL \
 		python-devel \
-		python-zmq \
 		python2-msgpack \
 		redhat-rpm-config \
 		scipy && \
